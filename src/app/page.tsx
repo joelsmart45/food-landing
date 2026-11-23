@@ -15,7 +15,7 @@ export default function Home() {
                 Delicious, fresh, and healthy meals made just for you. Fresh, locally sourced ingredients delivered to your doorstep.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/menu" className="bg-white text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-green-100 transition">
+                <Link href="#menu" className="bg-white text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-green-100 transition">
                   View Menu
                 </Link>
                 <button className="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-600 transition">
