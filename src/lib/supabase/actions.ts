@@ -2,7 +2,6 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
-import { cookies } from "next/headers";
 
 export async function signUp(formData: FormData) {
   const email = formData.get("email") as string;
@@ -10,8 +9,7 @@ export async function signUp(formData: FormData) {
   const fullName = formData.get("full_name") as string;
   const phone = formData.get("phone") as string;
 
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   const { error } = await supabase.auth.signUp({
     email,
@@ -36,8 +34,7 @@ export async function signIn(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   const { error } = await supabase.auth.signInWithPassword({
     email,
@@ -53,8 +50,7 @@ export async function signIn(formData: FormData) {
 }
 
 export async function signOut() {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   const { error } = await supabase.auth.signOut();
 
@@ -67,8 +63,7 @@ export async function signOut() {
 }
 
 export async function getSession() {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   const {
     data: { session },
@@ -78,8 +73,7 @@ export async function getSession() {
 }
 
 export async function getUser() {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   const {
     data: { user },
@@ -89,8 +83,7 @@ export async function getUser() {
 }
 
 export async function updateProfile(formData: FormData) {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   const {
     data: { user },
@@ -121,8 +114,7 @@ export async function updateProfile(formData: FormData) {
 }
 
 export async function getProfile() {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   const {
     data: { user },
@@ -146,8 +138,7 @@ export async function getProfile() {
 }
 
 export async function getOrders() {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createClient();
 
   const {
     data: { user },
